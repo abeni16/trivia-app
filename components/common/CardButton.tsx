@@ -13,13 +13,13 @@ const width = Dimensions.get('window').width;
 
 const CardButton: React.FC<CardButtonProps> = ({ title, iconName, color,firstcolor,secondcolor,thirdcolor ,onPress }) => {
   return (
-    <TouchableOpacity onPress={onPress} >
+    <TouchableOpacity style={{ borderRadius: 17, borderWidth: 1, borderColor: firstcolor, elevation: 2}} onPress={onPress} >
       {/* Gradient Background */}
       <LinearGradient
         colors={[firstcolor, secondcolor, thirdcolor]} // Adjust gradient colors
         start={[0, 0]}
         end={[1, 1]}
-        style={{padding: 6, height: 120, borderRadius: 16, alignItems: 'center', justifyContent: 'center', width: width / 3.5 }}
+        style={{padding: 6, height: 120, borderRadius: 16, alignItems: 'center', justifyContent: 'center', width: width / 3.5 , elevation: 2}}
       >
         <View className="p-12">
           <FontAwesome style={{opacity: 0.8}} name={iconName} size={48}  color={"white"} />

@@ -14,22 +14,23 @@ interface CardWithButtonFullProps {
 }
 
 
-const CardWithButtonFull = ({ title, iconName, color,firstcolor,secondcolor,thirdcolor ,onPress }) => {
+const CardWithButtonFull = ({ title, iconName, color,firstcolor,secondcolor,thirdcolor ,onPress,imagepath,imagealt }) => {
   return (
         <LinearGradient
           colors={[firstcolor, secondcolor, thirdcolor]} // Adjust gradient colors
           start={[0, 0]}
           end={[1, 1]}
-          style={{padding: 6,alignSelf:'center', height: 120, maxWidth: width/1.1, borderRadius: 16, alignItems: 'center', justifyContent: 'space-around', width: '100%' , flexDirection:"row"}}
+          style={{padding: 6,alignSelf:'center', height: 132, maxWidth: width/1.01, borderRadius: 16, alignItems: 'center', justifyContent: 'space-around', width: '100%' , flexDirection:"row"}}
         >
-            <View>
-                 <Text  className="font-bold text-lg text-white  mb-2">Today Trivia</Text>
-                <Text  className="text-xs  mb-2">{title}</Text>
-                <Button   onPress={onPress} title='Join Trivia' variant='secondary' />
+            <View style={{width: '50%'}}>
+                 <Text style={{color: '#EBF4F6', fontSize: 16, fontWeight: 'bold', opacity: 0.8}}  className="font-bold text-lg mb-4">{title}</Text>
+                <TouchableOpacity onPress={onPress} style={{padding: 8, height: 32, marginTop: 12, borderRadius: 12, backgroundColor: 'white', width: '60%', }}>
+                  <Text style={{color: '#6482AD', fontSize: 14, fontWeight: 'bold', alignSelf:'center'}}>Start Quiz</Text>
+                </TouchableOpacity>
             </View>
 
           <View className="p-12">
-            <Image source={require('../../assets/qbg.png')} style={{width: width/3, height: width/3}} alt='play-button'/>
+            <Image source={imagepath} style={{width: width/3, height: width/3}} alt={imagealt}/>
           </View>
           {/*add a half cirle */}
           <View  style={{position: 'absolute', top: 4, left: 4, opacity: 0.5,  width: 24, height: 24, borderRadius: 100, backgroundColor: thirdcolor}}></View>
